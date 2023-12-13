@@ -1,4 +1,4 @@
-fetch("http://52.91.224.207:8080/produto/famosos")
+fetch("https://52.91.224.207:8080/produto/famosos")
     .then(response => response.json())
     .then(dados => {
 

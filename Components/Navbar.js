@@ -3,7 +3,7 @@ export const Navbar = {
         let nameUser = this.getNameUser();
         $('.navbar').html(`<nav>
           <div class="welcomeUser">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-person-circle"
+              <svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-person-circle"
                   viewBox="0 0 16 16">
                   <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                   <path fill-rule="evenodd"
@@ -12,7 +12,7 @@ export const Navbar = {
               <p id="nameUser">Seja Bem vindo, ${nameUser} </p>
           </div>
           <button id="btnLogOut">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+              <svg xmlns="https://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                   class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                   <path fill-rule="evenodd"
                       d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />

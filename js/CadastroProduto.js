@@ -23,7 +23,7 @@ function init() {
 function getTipos() {
     $.ajax({
         type: 'GET',
-        url: 'http://52.91.224.207:8080/tipoproduto',
+        url: 'https://52.91.224.207:8080/tipoproduto',
         contentType: 'application/json',
 
         success: function (data) {
@@ -34,7 +34,7 @@ function getTipos() {
 
             if (xhr.status === 404) {
                 // Tratamento para status 404 (Não Encontrado)
-                window.location.href = "http://127.0.0.1:5501/src/front/index.html";
+                window.location.href = "https://127.0.0.1:5501/src/front/index.html";
                 // alert('Usuário não existente na base de dados com o email informado');
             } else {
                 // Outros casos de erro
@@ -49,7 +49,7 @@ function getTipos() {
 function getProdutos() {
     $.ajax({
         type: 'GET',
-        url: 'http://52.91.224.207:8080/produto',
+        url: 'https://52.91.224.207:8080/produto',
         contentType: 'application/json',
         success: function (data) {
             initTable(data)
@@ -58,7 +58,7 @@ function getProdutos() {
 
             if (xhr.status === 404) {
                 // Tratamento para status 404 (Não Encontrado)
-                window.location.href = "http://127.0.0.1:5501/src/front/index.html";
+                window.location.href = "https://127.0.0.1:5501/src/front/index.html";
                 // alert('Usuário não existente na base de dados com o email informado');
             } else {
                 // Outros casos de erro
@@ -117,7 +117,7 @@ function createProduto() {
 
     $.ajax({
         type: 'POST',
-        url: 'http://52.91.224.207:8080/produto',
+        url: 'https://52.91.224.207:8080/produto',
         contentType: 'application/json',
         headers: {
             'Authorization': TokenManager.getToken()
@@ -136,7 +136,7 @@ function createProduto() {
 
             if (xhr.status === 404) {
                 // Tratamento para status 404 (Não Encontrado)
-                window.location.href = "http://127.0.0.1:5501/src/front/index.html";
+                window.location.href = "https://127.0.0.1:5501/src/front/index.html";
                 // alert('Usuário não existente na base de dados com o email informado');
             } else {
                 // Outros casos de erro
@@ -153,7 +153,7 @@ function createProduto() {
 function removeProduto(produto) {
     $.ajax({
         type: 'DELETE',
-        url: `http://52.91.224.207:8080/produto/${idSelecionado}`,
+        url: `https://52.91.224.207:8080/produto/${idSelecionado}`,
         contentType: 'application/json',
         success: function (data) {
             console.log("Requisicao completa")
@@ -168,7 +168,7 @@ function removeProduto(produto) {
 
             if (xhr.status === 404) {
                 // Tratamento para status 404 (Não Encontrado)
-                window.location.href = "http://127.0.0.1:5501/src/front/index.html";
+                window.location.href = "https://127.0.0.1:5501/src/front/index.html";
                 // alert('Usuário não existente na base de dados com o email informado');
             } else {
                 // Outros casos de erro
@@ -199,7 +199,7 @@ function updateProduto(index, produto) {
 
     $.ajax({
         type: 'PUT',
-        url: `http://52.91.224.207:8080/produto/${idSelecionado}`,
+        url: `https://52.91.224.207:8080/produto/${idSelecionado}`,
         contentType: 'application/json',
         success: function (data) {
             console.log("Requisicao completa")
@@ -215,7 +215,7 @@ function updateProduto(index, produto) {
 
             if (xhr.status === 404) {
                 // Tratamento para status 404 (Não Encontrado)
-                window.location.href = "http://127.0.0.1:5501/src/front/index.html";
+                window.location.href = "https://127.0.0.1:5501/src/front/index.html";
                 // alert('Usuário não existente na base de dados com o email informado');
             } else {
                 // Outros casos de erro
@@ -271,7 +271,7 @@ document.getElementById("save-novo-tipo-modal").onclick = () => {
 
     $.ajax({
         type: 'POST',
-        url: 'http://52.91.224.207:8080/tipoproduto',
+        url: 'https://52.91.224.207:8080/tipoproduto',
         contentType: 'application/json',
         success: function (data) {
             console.log("Que data é essa:")
@@ -287,7 +287,7 @@ document.getElementById("save-novo-tipo-modal").onclick = () => {
 
             if (xhr.status === 404) {
                 // Tratamento para status 404 (Não Encontrado)
-                window.location.href = "http://127.0.0.1:5501/src/front/index.html";
+                window.location.href = "https://127.0.0.1:5501/src/front/index.html";
                 // alert('Usuário não existente na base de dados com o email informado');
             } else {
                 // Outros casos de erro

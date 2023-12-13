@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         $.ajax({
             type: 'POST',
-            url: 'http://52.91.224.207:8080/usuario/save',
+            url: 'https://52.91.224.207:8080/usuario/save',
             contentType: 'application/json',
             data: JSON.stringify(requestBody),
             success: function (data, textStatus, xhr) {

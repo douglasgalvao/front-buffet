@@ -1,4 +1,4 @@
-fetch("http://52.91.224.207:8080/usuario/indicador")
+fetch("https://52.91.224.207:8080/usuario/indicador")
     .then(response => response.json())
     .then(dados => {
 

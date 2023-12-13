@@ -11,7 +11,7 @@ function init() {
 function getProdutos() {
     $.ajax({
         type: 'GET',
-        url: `http://52.91.224.207:8080/evento/usuario/${localStorage.getItem("idUser")}`,
+        url: `https://52.91.224.207:8080/evento/usuario/${localStorage.getItem("idUser")}`,
         contentType: 'application/json',
         success: function (data) {
             initTable(data)
@@ -20,7 +20,7 @@ function getProdutos() {
 
             if (xhr.status === 404) {
                 // Tratamento para status 404 (Não Encontrado)
-                window.location.href = "http://127.0.0.1:5501/src/front/index.html";
+                window.location.href = "https://127.0.0.1:5501/src/front/index.html";
                 // alert('Usuário não existente na base de dados com o email informado');
             } else {
                 // Outros casos de erro
