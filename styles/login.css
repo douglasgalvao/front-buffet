@@ -1,0 +1,107 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.login-container {
+  background-color: transparent;
+}
+
+.login-logo {
+  margin: 50px;
+}
+
+#labelUser {
+  color: white;
+}
+
+#titleFormLogin {
+    color: white;
+}
+
+#containerLogin {
+  border-color: white;
+  border-style: outset;
+  max-width: 600px;
+  max-height: 700px;
+  border-width: 1px;
+  padding: 25px;
+  border-radius: 15px;
+}
+
+#copyRightText {
+  text-align: center;
+  color: white;
+  font-size: small;
+  top: 35px;
+  position: relative;
+}
+
+#labelPass {
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.login-form {
+  padding: 10px;
+  width: 100%;
+  background-color: transparent;
+}
+
+.login-form h2 {
+  margin-bottom: 10px;
+  text-align: center;
+  color: #0069d9;
+}
+
+.login-btn {
+  width: 100%;
+  max-width: 250px;
+  background-color: #0069d9;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-form img {
+  /* Aplica um filtro de escala de cinza à imagem */
+  filter: grayscale(100%);
+  /* Adiciona um pouco de opacidade à imagem para que a cor de fundo não interfira muito */
+  opacity: 0.7;
+}
+
+#password {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#showPasswordBtn {
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #0069d9;
+  color: white;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.input-group-append {
+  position: absolute;
+  right: 0;
+  top: 0;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buffet - Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./styles/login.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png" />
+    <script src="utils/tokenManager.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body style="background-color: #0e1826;">
+    <div class="container">
+        <div class="col-md-12" id="containerLogin">
+            <div class="row justify-content-center login-logo">
+                <div class="col-md-12 col-lg-12" style="display: flex; justify-content: center;">
+                    <img src="../front/imgs/logo.png" alt="" width="165px" height="94px">
+                </div>
+            </div>
+
+            <div class="row justify-content-center login-container">
+                <div class="col-md-12 col-lg-12"
+                    style="display: flex; justify-content: center; align-items: center; max-width: 400px;">
+                    <div class="login-form">
+                        <div class="col-md-12" style="margin-bottom: 30px;">
+                            <div class="col-md-12" style="display: flex; justify-content: center;">
+                                <h3 id="titleFormLogin">Recuperação de senha</h3>
+                            </div>
+                        </div>
+                        <form id="changePassword">
+                            <div class="form-group">
+                                <label for="token" id="labelUser">Token de redefinição</label>
+                                <input type="password" class="form-control" id="token"
+                                    placeholder="Digite seu token de redefinição" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="novaSenha" id="labelUser">Nova Senha</label>
+                                <input type="text" class="form-control" id="novaSenha"
+                                    placeholder="Digite sua nova senha" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmacaoNovaSenha" id="labelUser">Confirmação de senha</label>
+                                <input type="text" class="form-control" id="confirmacaoNovaSenha"
+                                    placeholder="Confirme sua nova senha" required>
+                            </div>
+
+                            <div class="form-group">
+                                <a href="./index.html" class="sign-up-link">Efetuar Login</a>
+                            </div>
+
+                            <div class="col-md-12 col-lg-12" style="display: flex; justify-content: center;">
+                                <button type="submit" form="changePassword" class="btn btn-primary login-btn">Redefinir Senha</button>
+                            </div>
+                        </form>
+                        <div class="col-md-12 col-lg-12">
+                            <p id="copyRightText">Copyright - Buffet Connect</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+
+<script>
+
+
+    $(document).ready(function () {
+        $('#changePassword').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: 'http://52.91.224.207:8080/usuario/changePassword',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    token: $('#token').val(),
+                    novaSenha: $('#novaSenha').val(),
+                    confirmacaoNovaSenha: $('#confirmacaoNovaSenha').val()
+                }),
+                success: function (data) {
+                    window.location.href = "index.html";
+                },
+                error: function (xhr, status, error) {
+                    console.log('Error:' + error);
+                }
+            });
+        });
+    });
+
+
+
+
+</script>

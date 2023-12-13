@@ -1,0 +1,66 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"
+        type="module" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+
+    <!-- Include the core CSS, this is needed by the grid -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-grid.css" />
+    <!-- Include the theme CSS, only need to import the theme you are going to use -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-theme-alpine.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="https://use.typekit.net/itn2vjx.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png" />
+    <link rel="manifest" href="favicons/site.webmanifest" />
+    <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script defer type="module" src="js/GestaoEvento.js" defer></script>
+    <script src="utils/tokenManager.js"></script>
+    <title>Buffet Connect</title>
+</head>
+
+<body>
+    <div class="navbar"></div>
+    <div class="container-fluid p-0 row h-100 w-100 ">
+
+        <aside class="menu-lateral col-2 p-0">
+            <img src="imgs/logo.png" alt="logo" class="img-fluid m-auto d-block mb-5" />
+
+            <div id="buttons-menu" class="d-flex flex-column align-items-center justify-content-around gap-3">
+                <button id="btn-cadastrar" type="button"
+                    class="botao d-block btn btn-primary w-75 rounded-pill">cadastrar</button>
+                <button id="btn-atualizar" type="button"
+                    class="botao d-block btn btn-primary w-75 rounded-pill atualizar">Atualizar</button>
+                <button id="btn-deletar" type="button"
+                    class="botao d-block btn btn-primary w-75 rounded-pill deletar">Deletar</button>
+            </div>
+
+        </aside>
+
+
+        <main class="col-10 text-white pt-5">
+            <div class="row h-100">
+                <div class="col">
+                  <div id="myGrid2" class="ag-theme-alpine p-0"></div>
+                </div>
+              </div>
+        </main>
+
+    </div>
+
+</body>
+
+</html>

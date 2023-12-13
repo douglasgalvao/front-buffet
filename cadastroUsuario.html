@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buffet - Cadastro</title>
+    <link rel="stylesheet" href="styles/cadastroUsuario.css">
+    <script src="utils/tokenManager.js"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="module" src="./js/CadastroUsuario.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body style="background-color: #0e1826;">
+    <div class="container">
+        <div class="col-md-12 col-lg-12" id="containerCadastro">
+
+
+            <div class="row" style="margin-top: 15px; margin-left: 5px; ">
+                <button class="btn-primary" type="button" style="border-radius: 5px;padding: 0px 20px;">
+                    <a href="./index.html" style="color: white; font-size: small;">
+                        Voltar
+                    </a>
+                </button>
+            </div>
+            <div class="row justify-content-center login-logo">
+                <div class="col-md-12 col-lg-12" style="display: flex; justify-content: center;">
+                    <img src="../front/imgs/logo.png" alt="" width="165px" height="94px">
+                </div>
+            </div>
+
+            <div class="row justify-content-center login-container">
+                <div class="col-md-12 col-lg-12"
+                    style="display: flex; justify-content: center; align-items: center; max-width: 800px;">
+
+                    <div class="login-form">
+                        <div class="col-md-12" style="display: flex; justify-content: center;">
+                            <h2 id="titleCadastro">Cadastro</h2>
+                        </div>
+                        <form id="cadastroForm" action="#" method="post">
+                            <div class="col-md-12" style="display: flex;">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="username" id="labelUser">Nome de Usuário</label>
+                                        <input type="text" class="form-control" id="username"
+                                            placeholder="Digite seu usuário" required>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="email" id="labelEmail">Email</label>
+                                        <input type="email" class="form-control" id="email"
+                                            placeholder="Digite seu e-mail" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="display: flex;">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="password" id="labelPass">Senha</label>
+                                        <input type="password" class="form-control" id="password"
+                                            placeholder="Digite sua senha" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="telefone" id="labelTelefone">Telefone</label>
+                                        <input type="text" class="form-control" id="telefone"
+                                            placeholder="Digite seu telefone:" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="display: flex; justify-content: center;">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="tipoAcesso" id="labelTipoAcesso">Tipo de Acesso</label>
+                                        <select class="form-control" id="tipoAcesso" required>
+                                            <option value=""></option>
+                                            <option value="financeiro">Financeiro</option>
+                                            <option value="estoque">Estoque</option>
+                                            <option value="servico">Serviço</option>
+                                            <option value="evento">Evento</option>
+                                            <option value="parceiro">Parceiro</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group" style="display: flex; justify-content: center; margin: 20px;">
+                                <button type="submit" for="cadastroForm"
+                                    class="btn btn-primary login-btn">Cadastrar</button>
+                            </div>
+                        </form>
+
+
+                        <div class="col-md-12 col-lg-12">
+                            <p id="copyRightText">Copyright - Buffet Connect</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+
+<script>
+    // const cadastroForm = document.querySelector('#cadastroForm');
+
+    // $(document).ready(function () {
+    //     $('#cadastroForm').submit(function (e) {
+            
+    //     });
+
+    // });
+</script>

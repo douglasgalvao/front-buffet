@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"
+        type="module" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+    <script src="utils/tokenManager.js"></script>
+    <!-- Include the core CSS, this is needed by the grid -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-grid.css" />
+    <!-- Include the theme CSS, only need to import the theme you are going to use -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-theme-alpine.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="https://use.typekit.net/itn2vjx.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png" />
+    <link rel="manifest" href="favicons/site.webmanifest" />
+    <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <style>
+        body {
+            overflow: hidden;
+        }
+    </style>
+    <script defer type="module" src="js/cadastroProduto.js"></script>
+
+    <title>Buffet Connect</title>
+</head>
+
+<body>
+    
+    <div class="navbar"></div>
+
+    <div class="container-fluid p-0 row h-100 w-100 ">
+
+        <aside id="menu-lateral" class="menu-lateral col-2 p-0">
+            <img src="imgs/logo.png" alt="logo" class="img-fluid m-auto d-block mb-5" />
+
+            <div id="buttons-menu" class="d-flex flex-column align-items-center justify-content-around gap-3">
+                <button id="btn-create" type="button"
+                    class="botao d-block btn btn-primary w-75 rounded-pill">Cadastrar</button>
+                <button id="btn-update" type="button"
+                    class="botao d-block btn btn-primary w-75 rounded-pill">Atualizar</button>
+                <button id="btn-delete" type="button"
+                    class="botao d-block btn btn-primary w-75 rounded-pill">Deletar</button>
+                <button id="btn-cancel" type="button"
+                    class="botao d-block btn btn-primary w-75 rounded-pill">Cancelar</button>
+            </div>
+
+        </aside>
+
+        <main class="col text-white">
+
+            <div id="head" class="m-5">
+                <h1 class="h5 text-center">Controle de estoque</h1>
+
+                <div id="campos" class="">
+                    <form class="row">
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">Nome do Produto</label>
+                                <input type="text" class="form-control" id="nome" name="nome" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="quantidade" class="form-label">Quantidade</label>
+                                <input type="number" class="form-control" id="quantidade" name="quantidade" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="tipo" class="form-label">Tipo de Produto</label>
+                                <select class="form-select" id="tipo" name="tipo" required>
+                                    <option value="1">Consumível</option>
+                                    <option value="2">Alugavel</option>
+                                    <option value="0">Novo tipo</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="preco">Preço:</label>
+                                <input type="number" step="0.01" min="0" id="preco" name="preco" class="form-control"
+                                    required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="margem" class="form-label">Margem de Lucro (%)</label>
+                                <input type="number" class="form-control" id="margem" name="margem" required>
+                            </div>
+                        </div>
+
+                        <div id="botoes-create" class="row ms-1">
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <div id="botoes-crud">
+                </div>
+
+            </div>
+
+            <div id="table" class="m-5 h-50">
+                <div id="myGrid2" class="ag-theme-alpine p-1"></div>
+            </div>
+
+
+        </main>
+
+
+    </div>
+
+
+    <!-- MODAL -->
+    <div class="modal fade" id="modal-novo-tipo" tabindex="-1" aria-labelledby="modalTipoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalTipoLabel">Novo Tipo</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="novo-tipo-input" class="form-label">Nome do tipo</label>
+                        <input type="text" class="form-control" id="novo-tipo-input" name="novo-tipo-input" required>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="close-novo-tipo-modal" type="button" class="btn btn-secondary"
+                        data-bs-dismiss="modal">Cancelar</button>
+                    <button id="save-novo-tipo-modal" type="button" class="btn btn-primary"
+                        data-bs-dismiss="modal">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

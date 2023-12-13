@@ -1,0 +1,10 @@
+[
+  {"timestamp": "2023-11-01 12:00:00", "totalCadastros": 50, "cadastrosComErro": 10},
+  {"timestamp": "2023-11-25 12:10:00", "totalCadastros": 80, "cadastrosComErro": 15},
+  {"timestamp": "2023-12-01 12:20:00", "totalCadastros": 120, "cadastrosComErro": 25},
+  {"timestamp": "2023-12-01 12:30:00", "totalCadastros": 200, "cadastrosComErro": 40},
+  {"timestamp": "2023-12-01 12:40:00", "totalCadastros": 300, "cadastrosComErro": 10},
+  {"timestamp": "2023-12-01 12:50:00", "totalCadastros": 400, "cadastrosComErro": 100},
+  {"timestamp": "2023-12-01 14:00:00", "totalCadastros": 200, "cadastrosComErro": 40},
+  {"timestamp": "2023-12-01 15:40:00", "totalCadastros": 300, "cadastrosComErro": 40}
+]

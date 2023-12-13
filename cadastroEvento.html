@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"
+        type="module" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+
+    <!-- Include the core CSS, this is needed by the grid -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-grid.css" />
+    <!-- Include the theme CSS, only need to import the theme you are going to use -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-grid-community/styles/ag-theme-alpine.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="https://use.typekit.net/itn2vjx.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png" />
+    <link rel="manifest" href="favicons/site.webmanifest" />
+    <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script defer type="module" src="js/CadastroEvento.js" defer></script>
+    <script src="utils/tokenManager.js"></script>
+    <title>Buffet Connect</title>
+</head>
+<style>
+    /* Estilo personalizado para um modal maior que lg */
+    .modal-xl {
+        max-width: 90%;
+    }
+</style>
+
+<body>
+    <div class="navbar"></div>
+    <div class="container-fluid p-0 row h-100 w-100 ">
+
+        <aside class="menu-lateral col-2 p-0">
+            <img src="imgs/logo.png" alt="logo" class="img-fluid m-auto d-block mb-5" />
+
+            <div id="buttons-menu" class="d-flex flex-column align-items-center justify-content-around gap-3">
+                <button id="btn-return" type="button" class="botao d-block btn btn-primary w-75 rounded-pill">Voltar
+                </button>
+            </div>
+
+        </aside>
+
+
+        <main class="col text-white">
+            <div class="container-fluid">
+
+                <div class="row pt-5" id="infoClient">
+                    <div class="col">
+                        <h1 class='rotulo pb-2'>Cliente:</h1>
+                        <div class='input-group mb-3'>
+                            <select class="form-select" aria-label="Default select example" id="clientId">
+                                <option selected value="">selecione um Cliente...</option>
+
+                            </select>
+                            <button id="createClient" class="btn"> Cadastrar novo</button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row pt-5" id="InfoAddress">
+                    <h1 class="rotulo pb-2">Endereço</h1>
+
+                    <div class="col-4">
+                        <label for='basic-url' class='form-label label'>Informe o cep</label>
+                        <div class='input-group mb-3'>
+                            <input type="text" class="w-100" name="cep" id="cep" placeholder="30110-001" required>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label for='basic-url' class='form-label label'>Estado</label>
+                        <div class='input-group mb-3'>
+                            <input type="text" class="w-100" name="estado" id="estado" placeholder="MG" readonly>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label for='basic-url' class='form-label label'>Cidade</label>
+                        <div class='input-group mb-3'>
+                            <input type="text" class="w-100" name="cidade" id="cidade" placeholder="Belo Horizonte"
+                                readonly>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for='basic-url' class='form-label label'>Rua</label>
+                        <div class='input-group mb-3'>
+                            <input type="text" class="w-100" name="rua" id="rua" placeholder="Av do contorno" readonly>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label for='basic-url' class='form-label label'>Numero</label>
+                        <div class='input-group mb-3'>
+                            <input type="number" class="w-100" name="numero" id="numero" placeholder="00" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row pt-5" id="InfoEvent">
+                    <h1 class="rotulo pb-2">Dados do Evento</h1>
+
+                    <div class="col-3">
+                        <label for='basic-url' class='form-label label'>Data do Evento</label>
+                        <div class='input-group mb-3'>
+                            <input type="date" class="w-100" name="dataEvento" id="dataEvento" required>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <label for='basic-url' class='form-label label'>Hora de Inicio</label>
+                        <div class='input-group mb-3'>
+                            <input type="time" class="w-100" name="horaInicio" id="horaInicio" required>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <label for='basic-url' class='form-label label'>Hora de Termino</label>
+                        <div class='input-group mb-3'>
+                            <input type="time" class="w-100" name="horaTermino" id="horaTermino" required>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <label for='basic-url' class='form-label label'>Convidados</label>
+                        <div class='input-group mb-3'>
+                            <input type="number" class="w-100" name="qConvidados" id="qConvidados" placeholder="100"
+                                required>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <label for='basic-url' class='form-label label'>Descrição do Evento</label>
+                        <div class='input-group mb-3'>
+                            <textarea type="text" class="w-100" name="descricao" id="descricao"
+                                placeholder="Descrição do Evento " required></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row pt-5" id="InfoEventPartner">
+                    <h1 class="rotulo pb-2">Parceiros do Evento</h1>
+                    <div class="col-12">
+                        <div class='input-group mb-3'>
+                            <select class="form-select" aria-label="Default select example" id="parceiroId">
+                                <option selected value="">selecione os Parceiros...</option>
+
+                            </select>
+                            <button id="addPartner" class="btn"> Adicionar ao Evento</button>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <h2 class="">Parceiros Selecionados: </h2>
+                        <ul id="ListParceiro">
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="row pt-5" id="InfoEventPartner">
+                    <h1 class="rotulo pb-2">Produtos do Evento</h1>
+                    <div class="col-12">
+                        <div class='input-group mb-3'>
+                            <select class="form-select" aria-label="Default select example" id="produtosId">
+                                <option selected value="">selecione os Produtos...</option>
+
+                            </select>
+                            <input type="number" placeholder="Informe a quantidade por pessoa " id="qProduct">
+                            <button id="AddProduto" class="btn"> Adicionar ao Evento</button>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <h2 class="">Produtos Selecionados: </h2>
+                        <ul id="listProduct">
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="row pt-5" id="InfoEventPartner">
+                    <h1 class="rotulo pb-2">Fechamento</h1>
+                    <div class="col-12">
+                        <h1 id="valorTotal">O valor total</h1>
+                    </div>
+                    <div class="col-12">
+                        <button id="finalizar" type="button" class="btn w-100" data-bs-toggle="modal"
+                            data-bs-target="#retornoBack">
+                            Cadastrar Evento
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+
+
+    <!-- Retorno do back-end -->
+    <div class="modal fade" id="retornoBack" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Os Seguintes itens estão em falta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="produtoFaltando"></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="createEvent">Confirmar Cadastro </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="modalCreateCliente" tabindex="-1" aria-labelledby="clienteModal" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="clienteModal">Criar Novo Cliente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formCreateCliente">
+                        <label for="cpfCliente">Nome:</label>
+                        <input class="form-control" type="text" id="nomeCliente" required>
+                        <label for="cpfCliente">Email</label>
+                        <input class="form-control" type="email" id="emailCliente" required>
+                        <div class="invalid-feedback">
+                            Por favor, insira um endereço de e-mail válido.
+                        </div>
+                        <label for="cpfCliente">CPF:</label>
+                        <input class="form-control" type="text" id="cpfCliente" required>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="createCliente"
+                        form="formCreateCliente">Cadastrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- mascára para CPF, essa referência precisa estar no final do arquivo para garantir que toda a pagina seja carregada antes usar -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+</body>
+
+</html>

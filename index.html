@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buffet - Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./styles/login.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png" />
+    <script src="utils/tokenManager.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body style="background-color: #0e1826;">
+    <div class="container">
+        <div class="col-md-12" id="containerLogin">
+            <div class="row justify-content-center login-logo">
+                <div class="col-md-12 col-lg-12" style="display: flex; justify-content: center;">
+                    <img src="../front/imgs/logo.png" alt="" width="165px" height="94px">
+                </div>
+            </div>
+
+            <div class="row justify-content-center login-container">
+                <div class="col-md-12 col-lg-12"
+                    style="display: flex; justify-content: center; align-items: center; max-width: 400px;">
+                    <div class="login-form">
+                        <div class="col-md-12">
+                            <div class="col-md-12" style="display: flex; justify-content: center;">
+                                <h3 id="titleFormLogin">Login</h3>
+                            </div>
+                        </div>
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label for="email" id="labelUser">Email</label>
+                                <input type="text" class="form-control" id="email" placeholder="Digite seu email"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" id="labelPass">Senha</label>
+                                <input type="password" class="form-control" id="password" placeholder="Digite sua senha"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <a href="./enviarToken.html" class="forgot-password-link">Esqueceu sua senha?</a>
+                            </div>
+
+                            <div class="form-group">
+                                <a href="./cadastroUsuario.html" class="sign-up-link">Cadastre-se aqui!</a>
+                            </div>
+
+                            <div class="col-md-12 col-lg-12" style="display: flex; justify-content: center;">
+                                <button type="submit" form="loginForm" class="btn btn-primary login-btn">Entrar</button>
+                            </div>
+                        </form>
+                        <div class="col-md-12 col-lg-12">
+                            <p id="copyRightText">Copyright - Buffet Connect</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+
+<script>
+
+
+    $(document).ready(function () {
+
+        $('#loginForm').submit(function (e) {
+            e.preventDefault();
+
+            const requestBody = {
+                email: $('#email').val(),
+                senha: $('#password').val()
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: 'http://52.91.224.207:8080/login',
+                contentType: 'application/json',
+                data: JSON.stringify(requestBody),
+                success: function (data) {
+                    if (TokenManager.getToken()) {
+                        TokenManager.removeToken('token');
+                    }
+                    TokenManager.setToken(data.token);
+                    let payload = TokenManager.decodeJwtToken(data.token);
+                    if (payload && payload.payload && payload.payload.tipoAcesso) {
+                        switch (payload.payload.tipoAcesso) {
+                            case 'financeiro':
+                                window.location.href = 'financeiro.html'
+                                break;
+                            case 'estoque':
+                                window.location.href = 'cadastroProduto.html'
+                                break;
+                            case 'servico':
+                                window.location.href = 'servico.html'
+                                break;
+                            case 'evento':
+                                window.location.href = 'evento.html'
+                                break;
+                            case 'parceiro':
+                                window.location.href = 'parceiro.html'
+                                break;
+                            default:
+                                window.location.href = '#'
+                                break;
+                        }
+                    } else {
+                        alert('Token inválido ou sem papel definido');
+                    }
+                    return true;
+                },
+                error: function (xhr, status, error) {
+                    // Código de erro
+                    if (xhr.status === 401) {
+                        // Tratamento para status 401 (Não Autorizado)
+                        alert('Credenciais inválidas. Por favor, verifique suas informações de login.');
+                    } else if (xhr.status === 404) {
+                        // Tratamento para status 404 (Não Encontrado)
+                        alert('Usuário não existente na base de dados com o email informado');
+                        window.location.href = "index.html";
+                    } else if (xhr.status === 500) {
+                        alert('Database is empty, não possui cadastros registrados na base');
+                    } else {
+                        alert('Erro na requisição:', error);
+                    }
+                    return false;
+                }
+            });
+
+
+        });
+
+
+    });
+
+
+
+
+</script>

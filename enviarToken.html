@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buffet - Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./styles/login.css">
+    <script src="utils/tokenManager.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body style="background-color: #0e1826;">
+    <div class="container">
+        <div class="col-md-12" id="containerLogin">
+            <div class="row" style="margin-left: 4px; ">
+                <button class="btn-primary" type="button" style="border-radius: 5px;padding: 0px 20px;">
+                    <a href="./index.html" style="color: white; font-size: small;">
+                        Voltar
+                    </a>
+                </button>
+            </div>
+
+            <div class="row justify-content-center login-logo">
+                <div class="col-md-12 col-lg-12" style="display: flex; justify-content: center;">
+                    <img src="../front/imgs/logo.png" alt="" width="165px" height="94px">
+                </div>
+            </div>
+
+            <div class="row justify-content-center login-container">
+                <div class="col-md-12 col-lg-12"
+                    style="display: flex; justify-content: center; align-items: center; max-width: 400px;">
+                    <div class="login-form">
+                        <div class="col-md-12" style="margin-bottom: 30px;">
+                            <div class="col-md-12" style="display: flex; justify-content: center;">
+                                <h3 id="titleFormLogin">Recuperação de senha</h3>
+                            </div>
+                        </div>
+                        <form id="sendToken">
+                            <div class="form-group">
+                                <label for="email" id="labelUser">Email de redefinição</label>
+                                <input type="text" class="form-control" id="email"
+                                    placeholder="Digite seu email de redefinição" required>
+                            </div>
+
+
+                            <div class="form-group">
+                                <a href="./index.html" class="sign-up-link">Efetuar Login</a>
+                            </div>
+
+                            <div class="form-group">
+                                <a href="./cadastroUsuario.html" class="sign-up-link">Cadastre-se aqui!</a>
+                            </div>
+
+                            <div class="col-md-12 col-lg-12" style="display: flex; justify-content: center;">
+                                <button type="submit" form="sendToken" class="btn btn-primary login-btn">Enviar
+                                    token</button>
+                            </div>
+                        </form>
+                        <div class="col-md-12 col-lg-12">
+                            <p id="copyRightText">Copyright - Buffet Connect</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+
+<script>
+
+
+    $(document).ready(function () {
+        $('#sendToken').submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+                method: 'POST',
+                url: 'http://52.91.224.207:8080/usuario/forgetPassword',
+                contentType: 'application/json',
+                data: JSON.stringify({ email: $('#email').val() }),
+                success: function (data) {
+                    window.location.href = "trocarSenha.html";
+                },
+                error: function (xhr, status, error) {
+                    console.log(xhr);
+                    console.log(error);
+                }
+            });
+        });
+    });
+
+
+
+
+</script>

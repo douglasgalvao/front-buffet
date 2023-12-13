@@ -1,0 +1,75 @@
+
+
+body,
+html {
+  height: 100%;
+  background-color: #0e1826;
+}
+.ag-text-field-input input{
+  color: #f2f2f2;
+}
+.ag-theme-alpine {
+  --ag-header-foreground-color: #f2f2f2;
+  --ag-header-background-color: #4f5f73;
+  --ag-control-panel-background-color:#4f5f73;
+  --ag-foreground-color: #0e1826;
+  --ag-background-color: #f2f2f2;
+  --ag-odd-row-background-color: rgb(0, 0, 0, 0.03);
+  --ag-font-family: "molto", serif;
+  --ag-font-weight: 500;
+  --ag-font-style: normal;
+  --ag-font-size: 12pt;
+
+  --ag-borders: none;
+  --ag-row-border-style: solid;
+  --ag-row-border-width: 1px;
+  --ag-row-border-color: #253140;
+
+  --ag-header-column-separator-display: block;
+  --ag-header-column-separator-height: 100%;
+  --ag-header-column-separator-width: 2px;
+  --ag-header-column-resize-handle-color: #253140;
+  --ag-header-column-separator-color: #0e1826;
+}
+
+.ag-theme-alpine .ag-header {
+  font-family: "molto", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 12pt;
+}
+
+.ag-theme-alpine {
+  --ag-borders-input: solid 1px;
+  --ag-input-border-color: #0e1826;
+}
+.ag-theme-alpine .ag-input-field-input {
+  background-color: #465568;
+}
+.rotulo {
+  font-family: "molto", serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 24pt;
+  text-align: center;
+  color: #f2f2f2;
+}
+
+.label {
+  font-family: "molto", serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 20pt;
+  text-align: center;
+  color: #f2f2f2;
+}
+.menu-lateral {
+  background-color: #253140;
+}
+
+
+.btn {
+  background-color: #4971A6;
+  color: #f2f2f2;
+}
+
