@@ -1,4 +1,4 @@
-import { Navbar } from "../components/Navbar.js";
+import { Navbar } from "../Components/Navbar.js";
 import { TokenManager } from "../utils/tokenManager2.js";
 import { Utils } from "../utils/Utils.js";
 import { ParceiroRepository } from "../repositories/ParceiroRepository.js";

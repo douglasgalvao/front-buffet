@@ -1,6 +1,6 @@
 import { Authorization } from "../Components/Authorization.js";
-import { Navbar } from "../components/Navbar.js";
-import { TableComponent } from "../components/TableComponent.js";
+import { Navbar } from "../Components/Navbar.js";
+import { TableComponent } from "../Components/TableComponent.js";
 
 
 

@@ -1,9 +1,9 @@
-import { TableComponent } from "../components/TableComponent.js";
+import { TableComponent } from "../Components/TableComponent.js";
 import { Utils } from "../utils/Utils.js";
 import { ParceiroRepository } from "../repositories/ParceiroRepository.js";
-import { createParceiroView } from "../components/ParceiroComponent.js";
+import { createParceiroView } from "../Components/ParceiroComponent.js";
 import { Authorization } from "../Components/Authorization.js";
-import { Navbar } from "../components/Navbar.js";
+import { Navbar } from "../Components/Navbar.js";
 import { TokenManager } from "../utils/tokenManager2.js";
 //init
 var div = document.getElementById("userContent");

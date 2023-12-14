@@ -1,6 +1,6 @@
-import { Navbar } from "../components/Navbar.js";
-import { TableComponent } from "../components/TableComponent.js";
-import { Authorization } from "../components/Authorization.js";
+import { Navbar } from "../Components/Navbar.js";
+import { TableComponent } from "../Components/TableComponent.js";
+import { Authorization } from "../Components/Authorization.js";
 
 function getProdutoAtual() {
   return localStorage.getItem("produtoAtual");

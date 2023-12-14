@@ -1,6 +1,6 @@
-import { TableComponent } from "../components/TableComponent.js";
+import { TableComponent } from "../Components/TableComponent.js";
 import { TokenManager } from "../utils/tokenManager2.js"
-import { Navbar } from "../components/Navbar.js";
+import { Navbar } from "../Components/Navbar.js";
 import { Authorization } from "../Components/Authorization.js";
 
 
