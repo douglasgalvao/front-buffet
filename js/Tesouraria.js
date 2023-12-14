@@ -123,25 +123,6 @@ function atualizarCampoValorEmCaixa(valorEmCaixa, valorMedioEventos) {
 
 }
 
-$.ajax({
-  type: "GET",
-  url: "https://gestaobusiness.shop/balancos",
-  contentType: "application/json",
-  headers: {
-    Authorization: Authorization.token.getToken(),
-  },
-  success: function (data) {
-    var balanco = data;
-    console.log(data);
-    // Atualizar o valor do staticValor
-    $('#staticValor').html("Valor em Caixa: R$" + balanco.valorEmCaixa);
-    $("#staticValor2").html("Valor médio eventos último mes: R$" + balanco.valorMedioEventos);
-  },
-  error: function (xhr, status, error) {
-    alert("Erro ao obter o balanço. Por favor, tente novamente.");
-    console.error("Erro na requisição:", error);
-  },
-});
 
 
 
@@ -187,6 +168,27 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Erro na requisição:", error);
     },
   });
+
+  $.ajax({
+    type: "GET",
+    url: "https://gestaobusiness.shop/balancos",
+    contentType: "application/json",
+    headers: {
+      Authorization: Authorization.token.getToken(),
+    },
+    success: function (data) {
+      var balanco = data;
+      console.log(data);
+      // Atualizar o valor do staticValor
+      $('#staticValor').html("Valor em Caixa: R$" + balanco.valorEmCaixa);
+      $("#staticValor2").html("Valor médio eventos último mes: R$" + balanco.valorMedioEventos);
+    },
+    error: function (xhr, status, error) {
+      alert("Erro ao obter o balanço. Por favor, tente novamente.");
+      console.error("Erro na requisição:", error);
+    },
+  });
+  
 
   document.getElementById("btnSend").addEventListener("click", function () {
     document.getElementById("loaderContainer").style.display = "flex";
