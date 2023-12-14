@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         $.ajax({
             type: 'POST',
-            url: 'http://44.203.195.117:8080/usuario/save',
+            url: 'https://gestaobusiness.shop/usuario/save',
             contentType: 'application/json',
             data: JSON.stringify(requestBody),
             success: function (data, textStatus, xhr) {

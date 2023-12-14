@@ -5,7 +5,7 @@ export class EventosRepository {
   async add(newEvento) {
     return await $.ajax({
       method: "POST",
-      url: "http://44.203.195.117:8080/evento",
+      url: "https://gestaobusiness.shop/evento",
       headers: {
         'Authorization': TokenManager.getToken() 
     },
@@ -24,7 +24,7 @@ export class EventosRepository {
   async remove(idParceiro) {
     return await $.ajax({
       method: "DELETE",
-      url: "http://44.203.195.117:8080/evento"+`/${idParceiro}`,
+      url: "https://gestaobusiness.shop/evento"+`/${idParceiro}`,
       headers: {
         'Authorization': TokenManager.getToken() 
     },
@@ -42,7 +42,7 @@ export class EventosRepository {
   async update(newEvento) {
     return await $.ajax({
       method: "PUT",
-      url: "http://44.203.195.117:8080/evento"+`/${newEvento.id}`,
+      url: "https://gestaobusiness.shop/evento"+`/${newEvento.id}`,
       headers: {
         'Authorization': TokenManager.getToken() 
     },
@@ -63,7 +63,7 @@ export class EventosRepository {
   async read() {
     return await $.ajax({
       method: "GET",
-      url: "http://44.203.195.117:8080/evento",
+      url: "https://gestaobusiness.shop/evento",
       contentType: "application/json",
       success: function (data) {
         if (data.length) {
@@ -79,7 +79,7 @@ export class EventosRepository {
   async readToUpdate(id) {
     return await $.ajax({
       method: "GET",
-      url: "http://44.203.195.117:8080/evento/update/"+id,
+      url: "https://gestaobusiness.shop/evento/update/"+id,
       contentType: "application/json",
       success: function (data) {
         if (data.length) {
@@ -95,7 +95,7 @@ export class EventosRepository {
   async readFromTable() {
     return await $.ajax({
       method: "GET",
-      url: "http://44.203.195.117:8080/evento/showTable",
+      url: "https://gestaobusiness.shop/evento/showTable",
       contentType: "application/json",
       success: function (data) {
         if (data.length) {
@@ -110,7 +110,7 @@ export class EventosRepository {
   async readIndicador() {
     return await $.ajax({
       method: "GET",
-      url: "http://44.203.195.117:8080/evento/inidicador",
+      url: "https://gestaobusiness.shop/evento/inidicador",
       contentType: "application/json",
       success: function (data) {
         if (data.length) {

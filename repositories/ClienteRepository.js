@@ -4,7 +4,7 @@ export class ClienteRepository {
   async add(newCliente) {
     return await $.ajax({
       method: "POST",
-      url: "http://44.203.195.117:8080/cliente",
+      url: "https://gestaobusiness.shop/cliente",
       headers: {
         Authorization: TokenManager.getToken(),
       },
@@ -19,7 +19,7 @@ export class ClienteRepository {
   async read() {
     return await $.ajax({
       method: "GET",
-      url: "http://44.203.195.117:8080/cliente",
+      url: "https://gestaobusiness.shop/cliente",
       contentType: "application/json",
       success: function (data) {
         if (data.length) {

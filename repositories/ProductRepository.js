@@ -5,7 +5,7 @@ export class ProductRepository {
   async add(newProduto) {
     return await $.ajax({
       method: "POST",
-      url: "http://44.203.195.117:8080/produto",
+      url: "https://gestaobusiness.shop/produto",
       headers: {
         'Authorization': TokenManager.getToken() 
     },
@@ -24,7 +24,7 @@ export class ProductRepository {
   async checarQuantidade(newProdutoDTO) {
     return await $.ajax({
       method: "POST",
-      url: "http://44.203.195.117:8080/produto/checarQuantidade",
+      url: "https://gestaobusiness.shop/produto/checarQuantidade",
       headers: {
         'Authorization': TokenManager.getToken() 
     },
@@ -43,7 +43,7 @@ export class ProductRepository {
   async remove(idProduto) {
     return await $.ajax({
       method: "DELETE",
-      url: "http://44.203.195.117:8080/produto"+`/${idProduto}`,
+      url: "https://gestaobusiness.shop/produto"+`/${idProduto}`,
       headers: {
         'Authorization': TokenManager.getToken() 
     },
@@ -61,7 +61,7 @@ export class ProductRepository {
   async update(newProduto) {
     return await $.ajax({
       method: "PUT",
-      url: "http://44.203.195.117:8080/produto"+`/${newProduto.id}`,
+      url: "https://gestaobusiness.shop/produto"+`/${newProduto.id}`,
       headers: {
         'Authorization': TokenManager.getToken() 
     },
@@ -81,7 +81,7 @@ export class ProductRepository {
   async read() {
     return await $.ajax({
       method: "GET",
-      url: "http://44.203.195.117:8080/produto",
+      url: "https://gestaobusiness.shop/produto",
       contentType: "application/json",
       success: function (data) {
         if (data.length) {

@@ -1,4 +1,4 @@
-fetch("http://44.203.195.117:8080/usuario/indicador")
+fetch("https://gestaobusiness.shop/usuario/indicador")
     .then(response => response.json())
     .then(dados => {
 

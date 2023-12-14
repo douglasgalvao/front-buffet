@@ -23,7 +23,7 @@ function init() {
 function getTipos() {
     $.ajax({
         type: 'GET',
-        url: 'http://44.203.195.117:8080/tipoproduto',
+        url: 'https://gestaobusiness.shop/tipoproduto',
         contentType: 'application/json',
 
         success: function (data) {
@@ -49,7 +49,7 @@ function getTipos() {
 function getProdutos() {
     $.ajax({
         type: 'GET',
-        url: 'http://44.203.195.117:8080/produto',
+        url: 'https://gestaobusiness.shop/produto',
         contentType: 'application/json',
         success: function (data) {
             initTable(data)
@@ -117,7 +117,7 @@ function createProduto() {
 
     $.ajax({
         type: 'POST',
-        url: 'http://44.203.195.117:8080/produto',
+        url: 'https://gestaobusiness.shop/produto',
         contentType: 'application/json',
         headers: {
             'Authorization': TokenManager.getToken()
@@ -153,7 +153,7 @@ function createProduto() {
 function removeProduto(produto) {
     $.ajax({
         type: 'DELETE',
-        url: `http://44.203.195.117:8080/produto/${idSelecionado}`,
+        url: `https://gestaobusiness.shop/produto/${idSelecionado}`,
         contentType: 'application/json',
         success: function (data) {
             console.log("Requisicao completa")
@@ -199,7 +199,7 @@ function updateProduto(index, produto) {
 
     $.ajax({
         type: 'PUT',
-        url: `http://44.203.195.117:8080/produto/${idSelecionado}`,
+        url: `https://gestaobusiness.shop/produto/${idSelecionado}`,
         contentType: 'application/json',
         success: function (data) {
             console.log("Requisicao completa")
@@ -271,7 +271,7 @@ document.getElementById("save-novo-tipo-modal").onclick = () => {
 
     $.ajax({
         type: 'POST',
-        url: 'http://44.203.195.117:8080/tipoproduto',
+        url: 'https://gestaobusiness.shop/tipoproduto',
         contentType: 'application/json',
         success: function (data) {
             console.log("Que data é essa:")

@@ -5,7 +5,7 @@ export class ParceiroRepository {
   async add(newParceiro) {
     return await $.ajax({
       method: "POST",
-      url: "http://44.203.195.117:8080/parceiro",
+      url: "https://gestaobusiness.shop/parceiro",
       headers: {
         'Authorization': TokenManager.getToken() 
     },
@@ -24,7 +24,7 @@ export class ParceiroRepository {
   async remove(idParceiro) {
     return await $.ajax({
       method: "DELETE",
-      url: "http://44.203.195.117:8080/parceiro"+`/${idParceiro}`,
+      url: "https://gestaobusiness.shop/parceiro"+`/${idParceiro}`,
       headers: {
         'Authorization': TokenManager.getToken() 
     },
@@ -42,7 +42,7 @@ export class ParceiroRepository {
   async update(newParceiro) {
     return await $.ajax({
       method: "PUT",
-      url: "http://44.203.195.117:8080/parceiro"+`/${newParceiro.id}`,
+      url: "https://gestaobusiness.shop/parceiro"+`/${newParceiro.id}`,
       headers: {
         'Authorization': TokenManager.getToken() 
     },
@@ -62,7 +62,7 @@ export class ParceiroRepository {
   async read() {
     return await $.ajax({
       method: "GET",
-      url: "http://44.203.195.117:8080/parceiro",
+      url: "https://gestaobusiness.shop/parceiro",
       contentType: "application/json",
       success: function (data) {
         if (data.length) {
