@@ -11,7 +11,7 @@ function init() {
 function getProdutos() {
     $.ajax({
         type: 'GET',
-        url: `https://44.202.145.192:8080/evento/usuario/${localStorage.getItem("idUser")}`,
+        url: `http://44.203.195.117:8080/evento/usuario/${localStorage.getItem("idUser")}`,
         contentType: 'application/json',
         success: function (data) {
             initTable(data)

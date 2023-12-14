@@ -4,7 +4,7 @@ export class ClienteRepository {
   async add(newCliente) {
     return await $.ajax({
       method: "POST",
-      url: "https://44.202.145.192:8080/cliente",
+      url: "http://44.203.195.117:8080/cliente",
       headers: {
         Authorization: TokenManager.getToken(),
       },
@@ -19,7 +19,7 @@ export class ClienteRepository {
   async read() {
     return await $.ajax({
       method: "GET",
-      url: "https://44.202.145.192:8080/cliente",
+      url: "http://44.203.195.117:8080/cliente",
       contentType: "application/json",
       success: function (data) {
         if (data.length) {

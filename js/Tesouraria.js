@@ -125,7 +125,7 @@ function atualizarCampoValorEmCaixa(valorEmCaixa, valorMedioEventos) {
 
 $.ajax({
   type: "GET",
-  url: "https://44.202.145.192:8080/balancos",
+  url: "http://44.203.195.117:8080/balancos",
   contentType: "application/json",
   headers: {
     Authorization: Authorization.token.getToken(),
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   $.ajax({
     type: "GET",
-    url: "https://44.202.145.192:8080/evento/status?status=PENDENTE",
+    url: "http://44.203.195.117:8080/evento/status?status=PENDENTE",
     contentType: "application/json",
     headers: {
       Authorization: Authorization.token.getToken(),
@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   $.ajax({
     type: "GET",
-    url: "https://44.202.145.192:8080/produto/status?status=PENDENTE",
+    url: "http://44.203.195.117:8080/produto/status?status=PENDENTE",
     contentType: "application/json",
     headers: {
       Authorization: Authorization.token.getToken(),
@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let id = localStorage.getItem("eventoAtual");
     $.ajax({
       type: "POST",
-      url: "https://44.202.145.192:8080/balancos/aprovarEvento",
+      url: "http://44.203.195.117:8080/balancos/aprovarEvento",
       headers: {
         Authorization: Authorization.token.getToken(),
       },
@@ -221,7 +221,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("loaderContainer").style.display = "flex";
     $.ajax({
       method: "POST",
-      url: "https://44.202.145.192:8080/balancos/aprovarCompra",
+      url: "http://44.203.195.117:8080/balancos/aprovarCompra",
       headers: {
         Authorization: Authorization.token.getToken(),
       },
@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     $.ajax({
       method: "POST",
-      url: "https://44.202.145.192:8080/balancos/recusarCompra",
+      url: "http://44.203.195.117:8080/balancos/recusarCompra",
       headers: {
         Authorization: Authorization.token.getToken(),
       },
