@@ -34,7 +34,7 @@ function getTipos() {
 
             if (xhr.status === 404) {
                 // Tratamento para status 404 (Não Encontrado)
-                window.location.href = "https://127.0.0.1:5501/src/front/index.html";
+                window.location.href = "http://127.0.0.1:5501/src/front/index.html";
                 // alert('Usuário não existente na base de dados com o email informado');
             } else {
                 // Outros casos de erro
@@ -52,13 +52,16 @@ function getProdutos() {
         url: 'https://gestaobusiness.shop/produto',
         contentType: 'application/json',
         success: function (data) {
+            data.forEach(objeto => {
+                delete objeto.status;
+            });
             initTable(data)
         },
         error: function (xhr, status, error) {
 
             if (xhr.status === 404) {
                 // Tratamento para status 404 (Não Encontrado)
-                window.location.href = "https://127.0.0.1:5501/src/front/index.html";
+                window.location.href = "http://127.0.0.1:5501/src/front/index.html";
                 // alert('Usuário não existente na base de dados com o email informado');
             } else {
                 // Outros casos de erro
@@ -136,7 +139,7 @@ function createProduto() {
 
             if (xhr.status === 404) {
                 // Tratamento para status 404 (Não Encontrado)
-                window.location.href = "https://127.0.0.1:5501/src/front/index.html";
+                window.location.href = "http://127.0.0.1:5501/src/front/index.html";
                 // alert('Usuário não existente na base de dados com o email informado');
             } else {
                 // Outros casos de erro
@@ -168,7 +171,7 @@ function removeProduto(produto) {
 
             if (xhr.status === 404) {
                 // Tratamento para status 404 (Não Encontrado)
-                window.location.href = "https://127.0.0.1:5501/src/front/index.html";
+                window.location.href = "http://127.0.0.1:5501/src/front/index.html";
                 // alert('Usuário não existente na base de dados com o email informado');
             } else {
                 // Outros casos de erro
@@ -215,7 +218,7 @@ function updateProduto(index, produto) {
 
             if (xhr.status === 404) {
                 // Tratamento para status 404 (Não Encontrado)
-                window.location.href = "https://127.0.0.1:5501/src/front/index.html";
+                window.location.href = "http://127.0.0.1:5501/src/front/index.html";
                 // alert('Usuário não existente na base de dados com o email informado');
             } else {
                 // Outros casos de erro
@@ -287,7 +290,7 @@ document.getElementById("save-novo-tipo-modal").onclick = () => {
 
             if (xhr.status === 404) {
                 // Tratamento para status 404 (Não Encontrado)
-                window.location.href = "https://127.0.0.1:5501/src/front/index.html";
+                window.location.href = "http://127.0.0.1:5501/src/front/index.html";
                 // alert('Usuário não existente na base de dados com o email informado');
             } else {
                 // Outros casos de erro
