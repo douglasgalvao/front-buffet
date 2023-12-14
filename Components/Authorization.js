@@ -17,7 +17,7 @@ export const Authorization = {
 
       $.ajax({
         type: "GET",
-        url: "https://52.91.224.207:8080/usuario/getUsuario/" + idUsuario,
+        url: "https://44.202.145.192:8080/usuario/getUsuario/" + idUsuario,
         contentType: "application/json",
         success: function (data) {
           localStorage.setItem("nameUser", data.nome);
